@@ -36,7 +36,7 @@ export class PredictService {
     });
 
     if (prediction) {
-      return prediction;
+      return { prediction };
     } else {
       let result: any;
       try {
@@ -78,7 +78,7 @@ export class PredictService {
       });
       await this.predictionRepository.save(predictionToCreate);
 
-      return predictionResponseDto;
+      return { prediction: predictionResponseDto };
     }
   }
 

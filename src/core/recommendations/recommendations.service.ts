@@ -38,7 +38,7 @@ export class RecommendationsService {
     });
 
     if (recommendation) {
-      return recommendation;
+      return { recommendation };
     } else {
       const prompt = `Tengo la siguiente información del clima:
         ${JSON.stringify(createRecommendationDto)}
@@ -105,7 +105,7 @@ export class RecommendationsService {
         });
         await this.recommendationRepository.save(recommendationToCreate);
 
-        return recommendationResponseDto;
+        return { recommendation: recommendationResponseDto };
       } else {
         throw new InternalServerErrorException({
           message: ['Error en la petición (No hubo respuesta de OpenAI).'],
