@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const builder = new DocumentBuilder()
-    .setTitle('Qr-Backend');
+    .setTitle('Nasa-Backend');
 
   if (process.env.NODE_ENV === 'production') {
     builder
