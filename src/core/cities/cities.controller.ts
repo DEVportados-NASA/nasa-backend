@@ -14,7 +14,12 @@ export class CitiesController {
   }
 
   @Get(':name')
-  getBranchByUserId(@Param('name') name: string) {
+  getCityByName(@Param('name') name: string) {
     return this.citiesService.findByName(name);
+  }
+
+  @Get()
+  getAll() {
+    return this.citiesService.findAll();
   }
 }
