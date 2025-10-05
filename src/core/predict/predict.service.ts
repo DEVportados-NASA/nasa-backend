@@ -45,7 +45,8 @@ export class PredictService {
         const dd = String(getPredictionDto.date.getDate()).padStart(2, '0');
         const shortDate = `${yyyy}-${mm}-${dd}`;
 
-        const { stdout } = await execAsync(`python3 predict.py ${getPredictionDto.city} ${shortDate}`);
+        const command = `python3 predict.py "${getPredictionDto.city}" ${shortDate}`;
+        const { stdout } = await execAsync(command);
 
         result = JSON.parse(stdout);
       } catch (error) {
