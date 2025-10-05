@@ -7,6 +7,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import { CitiesModule } from './core/cities/cities.module';
 import { PredictModule } from './core/predict/predict.module';
 import { ActivitiesModule } from './core/activities/activities.module';
+import { ActivityRecommendationsModule } from './core/activity-recommendations/activity-recommendations.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { ActivitiesModule } from './core/activities/activities.module';
   RecommendationsModule,
   CitiesModule,
   PredictModule,
-  ActivitiesModule],
+  ActivitiesModule,
+  ActivityRecommendationsModule],
   controllers: [AppController],
   providers: [AppService],
 })

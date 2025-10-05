@@ -53,4 +53,8 @@ export class CitiesService {
     const cities = await this.cityRepository.find();
     return { cities };
   }
+
+  async findAllToService() {
+    return await this.cityRepository.find();
+  }
 }
