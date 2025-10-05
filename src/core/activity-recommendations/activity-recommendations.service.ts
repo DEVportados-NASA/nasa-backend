@@ -54,7 +54,7 @@ export class ActivityRecommendationsService {
       const prompt = `Actividades: ${activitiesNames.join(', ')}
         Ciudades: ${citiesNames.join(', ')}
         Filtra las ciudades donde se pueden realizar esas actividades considerando clima y geografía.
-        Luego ordénalas de la más recomendable a la menos, y explica por qué.
+        Luego ordénalas de la más recomendable a la menos, y explica por qué en inglés.
         Devuelve solo JSON con el formato:
         {
           "items": [

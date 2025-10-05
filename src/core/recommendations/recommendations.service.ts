@@ -43,7 +43,7 @@ export class RecommendationsService {
       const prompt = `Tengo la siguiente información del clima:
         ${JSON.stringify(createRecommendationDto)}
         Basado en esta información:
-        1. Dame **5 recomendaciones totales** en una sola lista:
+        1. Dame **5 recomendaciones totales** en una sola lista en inglés:
           - Las 3 primeras deben ser actividades para hacer en la ciudad.
           - Las 2 últimas deben ser consejos o advertencias sobre el clima.
         2. Devuelve **solo** el formato JSON en texto para poder parsearlo con esta estructura exacta un objeto (recomendaciones que sea una lista de 5 strings):
@@ -105,7 +105,15 @@ export class RecommendationsService {
         });
         await this.recommendationRepository.save(recommendationToCreate);
 
-        return { recommendation: recommendationResponseDto };
+        return {
+          recommendation: {
+            firstRecommendation: first,
+            secondRecommendation: second,
+            thirdRecommendation: third,
+            fourthRecommendation: fourth,
+            fifthRecommendation: fifth
+          }
+        };
       } else {
         throw new InternalServerErrorException({
           message: ['Error en la petición (No hubo respuesta de OpenAI).'],
